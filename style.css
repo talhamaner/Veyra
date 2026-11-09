@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #090909;
+    color: #f5f2ed;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* Background */
+
+.background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: 0.12;
+}
+
+.glow-one {
+    background: #c9a76a;
+    top: -200px;
+    left: -150px;
+}
+
+.glow-two {
+    background: #714b9e;
+    bottom: -250px;
+    right: -150px;
+}
+
+
+/* Navbar */
+
+.navbar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(9,9,9,0.75);
+    backdrop-filter: blur(20px);
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #d6b574;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: #a8a5a0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.favorites-btn {
+    border: 1px solid rgba(255,255,255,0.15);
+    background: transparent;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.favorites-btn:hover {
+    background: #fff;
+    color: #111;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 680px;
+    padding: 100px 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    color: #c6a96a;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(60px, 8vw, 110px);
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #aaa39a;
+    font-style: italic;
+}
+
+.hero-description {
+    margin-top: 35px;
+    color: #9b9892;
+    max-width: 430px;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.discover-btn {
+    margin-top: 35px;
+    padding: 16px 25px;
+
+    border: none;
+    border-radius: 40px;
+
+    background: #eee8dc;
+    color: #111;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.discover-btn span {
+    margin-left: 15px;
+}
+
+.discover-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Hero animation */
+
+.hero-orbit {
+    width: 380px;
+    height: 380px;
+    position: relative;
+}
+
+.orbit-circle {
+    position: absolute;
+    inset: 30px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+
+    animation: rotate 15s linear infinite;
+}
+
+.orbit-circle::after {
+    content: "";
+
+    position: absolute;
+    width: 10px;
+    height: 10px;
+
+    background: #d6b574;
+    border-radius: 50%;
+
+    top: -5px;
+    left: 50%;
+}
+
+.floating-card {
+    position: absolute;
+
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(20px);
+
+    border-radius: 20px;
+
+    font-size: 25px;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+.card-one {
+    top: 40px;
+    right: 30px;
+}
+
+.card-two {
+    bottom: 60px;
+    left: 20px;
+    animation-delay: 1s;
+}
+
+.card-three {
+    top: 150px;
+    right: -10px;
+    animation-delay: 2s;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* Sections */
+
+.mood-section,
+.recommendation-section,
+.favorites-section {
+    padding: 100px 8%;
+}
+
+.section-heading {
+    margin-bottom: 50px;
+}
+
+.section-heading p {
+    color: #c6a96a;
+    letter-spacing: 3px;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(40px, 5vw, 65px);
+    font-weight: 500;
+}
+
+.section-heading h2 span {
+    color: #77736d;
+    font-style: italic;
+}
+
+.line {
+    width: 60px;
+    height: 1px;
+    background: #c6a96a;
+    margin-top: 25px;
+}
+
+
+/* Mood Grid */
+
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.mood-card {
+    text-align: left;
+
+    min-height: 180px;
+
+    padding: 25px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.035);
+
+    color: white;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition: 0.35s;
+
+    font-family: inherit;
+}
+
+.mood-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(214,181,116,0.5);
+    background: rgba(255,255,255,0.07);
+}
+
+.mood-card.selected {
+    border-color: #d6b574;
+    background: rgba(214,181,116,0.08);
+}
+
+.mood-icon {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.mood-card h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.mood-card p {
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* Selected Mood */
+
+.selected-mood {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+
+/* Movies */
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.movie-card {
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #121212;
+
+    border: 1px solid rgba(255,255,255,0.07);
+
+    transition: 0.35s;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.movie-info {
+    padding: 18px;
+}
+
+.movie-info h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.movie-meta {
+    color: #777;
+    font-size: 12px;
+}
+
+.movie-description {
+    color: #999;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.favorite {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background: rgba(0,0,0,0.6);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* Empty state */
+
+.empty-state {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    border: 1px dashed rgba(255,255,255,0.1);
+
+    border-radius: 20px;
+}
+
+.empty-icon {
+    font-size: 35px;
+    color: #c6a96a;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #777;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 70px 8%;
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.footer-logo {
+    font-family: "Playfair Display", serif;
+    font-size: 35px;
+}
+
+footer p {
+    color: #777;
+    margin-top: 10px;
+}
+
+.footer-line {
+    width: 50px;
+    height: 1px;
+    background: #c6a96a;
+    margin: 25px auto;
+}
+
+footer small {
+    color: #555;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        padding: 80px 7%;
+    }
+
+    .hero-orbit {
+        display: none;
+    }
+
+    .mood-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 70px 7%;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .mood-section,
+    .recommendation-section,
+    .favorites-section {
+        padding: 70px 5%;
+    }
+
+    .mood-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .movie-info {
+        padding: 12px;
+    }
+
+    .movie-info h3 {
+        font-size: 17px;
+    }
+
+}
