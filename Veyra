@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Veyra — Your Mood. Your Movie.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>V</span>eyra
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#moods">Moods</a>
+            <a href="#recommendations">Discover</a>
+        </div>
+
+        <button class="favorites-btn" onclick="showFavorites()">
+            ♡ Favorites
+        </button>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO VEYRA</p>
+
+            <h1>
+                Your mood.
+                <span>Your movie.</span>
+            </h1>
+
+            <p class="hero-description">
+                Tell us how you're feeling and we'll find a story
+                that feels just right.
+            </p>
+
+            <button class="discover-btn" onclick="scrollToMoods()">
+                Discover your movie
+                <span>→</span>
+            </button>
+
+        </div>
+
+        <div class="hero-orbit">
+
+            <div class="orbit-circle"></div>
+
+            <div class="floating-card card-one">
+                🎬
+            </div>
+
+            <div class="floating-card card-two">
+                ♡
+            </div>
+
+            <div class="floating-card card-three">
+                ✦
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Mood Section -->
+    <section class="mood-section" id="moods">
+
+        <div class="section-heading">
+
+            <p>STEP 01</p>
+
+            <h2>
+                What are you
+                <span>feeling?</span>
+            </h2>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <div class="mood-grid">
+
+            <button class="mood-card" onclick="selectMood('happy')">
+                <div class="mood-icon">☀️</div>
+                <h3>Happy</h3>
+                <p>Something joyful</p>
+            </button>
+
+            <button class="mood-card" onclick="selectMood('sad')">
+                <div class="mood-icon">🌧️</div>
+                <h3>Melancholic</h3>
+                <p>Let me feel it</p>
+            </button>
+
+            <button class="mood-card" onclick="selectMood('romantic')">
+                <div class="mood-icon">♡</div>
+                <h3>Romantic</h3>
+                <p>Something heartfelt</p>
+            </button>
+
+            <button class="mood-card" onclick="selectMood('chill')">
+                <div class="mood-icon">☁️</div>
+                <h3>Chill</h3>
+                <p>Slow & easy</p>
+            </button>
+
+            <button class="mood-card" onclick="selectMood('excited')">
+                <div class="mood-icon">⚡</div>
+                <h3>Excited</h3>
+                <p>Keep me hooked</p>
+            </button>
+
+            <button class="mood-card" onclick="selectMood('scared')">
+                <div class="mood-icon">◉</div>
+                <h3>Thrilled</h3>
+                <p>Give me chills</p>
+            </button>
+
+            <button class="mood-card" onclick="selectMood('thoughtful')">
+                <div class="mood-icon">☾</div>
+                <h3>Thoughtful</h3>
+                <p>Make me think</p>
+            </button>
+
+            <button class="mood-card" onclick="selectMood('nostalgic')">
+                <div class="mood-icon">✦</div>
+                <h3>Nostalgic</h3>
+                <p>Take me back</p>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Recommendations -->
+    <section class="recommendation-section" id="recommendations">
+
+        <div class="section-heading">
+
+            <p>STEP 02</p>
+
+            <h2>
+                Picked for your
+                <span>mood.</span>
+            </h2>
+
+        </div>
+
+
+        <div id="selectedMood" class="selected-mood">
+            Choose a mood above to begin.
+        </div>
+
+
+        <div class="movie-grid" id="movieGrid">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">✦</div>
+
+                <h3>Your cinematic journey starts here.</h3>
+
+                <p>
+                    Choose a mood and let Veyra find something
+                    you'll love.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Favorites -->
+    <section class="favorites-section" id="favorites">
+
+        <div class="section-heading">
+
+            <p>YOUR COLLECTION</p>
+
+            <h2>
+                Saved <span>stories.</span>
+            </h2>
+
+        </div>
+
+        <div id="favoritesGrid" class="movie-grid"></div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            Veyra
+        </div>
+
+        <p>
+            Your mood. Your movie.
+        </p>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © 2026 Veyra. Made for movie lovers.
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
